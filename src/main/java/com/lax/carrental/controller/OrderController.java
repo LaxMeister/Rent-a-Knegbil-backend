@@ -20,12 +20,14 @@ public class OrderController {
         return orderService.myOrders();
     }
 
+    // Visar en specifik kunds alla tidigare och nuvarande ordrar.
     @GetMapping("/onecustomersorders/{customerId}")
     public List<Orders> oneCustomersOrders(@PathVariable long customerId){
         return orderService.oneCustomersOrders(customerId);
     }
 
     // I postman skriv bara 2st siffror.
+    // Första siffran är kund ID och andra siffran är Bil ID. Exempel: 23
     @PostMapping("/ordercar")
     public Orders orderCar(@RequestBody String number) {
         return orderService.orderCar(number);

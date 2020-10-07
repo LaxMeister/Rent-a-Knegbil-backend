@@ -6,14 +6,19 @@ import com.lax.carrental.dao.OrderRepo;
 import com.lax.carrental.entity.Cars;
 import com.lax.carrental.entity.Customer;
 import com.lax.carrental.entity.Orders;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
 public class OrderService {
+
+    private static final Logger logger = LoggerFactory.getLogger(CarService.class);
 
     @Autowired
     OrderRepo orderRepo;
@@ -29,7 +34,7 @@ public class OrderService {
     }
 
     public List<Orders> oneCustomersOrders(long customerId) {
-        return (List<Orders>) orderRepo.findByCustomerId(customerId);
+        return orderRepo.findAllByCustomerId(customerId);
     }
 
     public Orders orderCar(String number){
@@ -45,6 +50,7 @@ public class OrderService {
         newOrder.setBooked(true);
         orderRepo.findAll().add(newOrder);
         orderRepo.save(newOrder);
+        logger.info(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + " -------->  " + "Customer " + newOrder.getName() + " booked " + newOrder.getCar());
         return newOrder;
     }
 
@@ -55,6 +61,7 @@ public class OrderService {
         order.setBooked(false);
         carRepo.save(car);
         orderRepo.save(order);
+        logger.info(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + " -------->  " + "Customer " + order.getName() + " unbooked " + order.getCar());
         return order;
 
     }

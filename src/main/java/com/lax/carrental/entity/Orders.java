@@ -13,6 +13,7 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "CUSTOMER_ID")
     private long customerId;
 
     @Column(name = "CUSTOMER")

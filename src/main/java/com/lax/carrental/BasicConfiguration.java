@@ -37,6 +37,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/ordercar**").hasRole("USER")
                 .antMatchers("/api/v1/updateorder**").hasRole("USER")
                 .antMatchers("/api/v1/myorders**").hasRole("USER")
+                .antMatchers("/api/v1/onecustomersorders**").hasRole("USER")
                 .antMatchers("/api/v1/customers**").hasRole("ADMIN")
                 .antMatchers("/api/v1/addcar**").hasRole("ADMIN")
                 .antMatchers("/api/v1/deletecar**").hasRole("ADMIN")
