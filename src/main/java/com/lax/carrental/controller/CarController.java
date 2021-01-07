@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin(origins = {"http://127.0.0.1:5501","http://localhost:5001","http://localhost:5002"}, allowCredentials = "true")
 public class CarController {
 
     @Autowired

@@ -9,6 +9,7 @@ import java.util.List;
 public interface OrderRepo extends JpaRepository<Orders, Long> {
 
     Orders findById(long id);
+    Orders findByCarId(long id);
     List<Orders> findAllByCustomerId(long customerId);
 
 

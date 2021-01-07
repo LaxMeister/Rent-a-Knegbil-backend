@@ -11,8 +11,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "FIRSTNAME")
+    private String firstname;
+
+    @Column(name = "LASTNAME")
+    private String lastname;
 
     @Column(name = "ADRESS")
     private String adress;
@@ -20,14 +23,25 @@ public class Customer {
     @Column(name = "PHONE")
     private int phone;
 
+    @Column(name = "USERNAME")
+    private String username;
+
+    @Column(name = "RENT_TIMES")
+    private int rentTimes;
+
+
+
     public Customer() {
     }
 
-    public Customer(long id, String name, String adress, int phone) {
+    public Customer(long id, String firstname, String lastname, String adress, int phone, String username, int rentTimes) {
         this.id = id;
-        this.name = name;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.adress = adress;
         this.phone = phone;
+        this.username = username;
+        this.rentTimes = rentTimes;
     }
 
     public long getId() {
@@ -38,12 +52,20 @@ public class Customer {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getAdress() {
@@ -60,5 +82,21 @@ public class Customer {
 
     public void setPhone(int phone) {
         this.phone = phone;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getRentTimes() {
+        return rentTimes;
+    }
+
+    public void setRentTimes(int rentTimes) {
+        this.rentTimes = rentTimes;
     }
 }

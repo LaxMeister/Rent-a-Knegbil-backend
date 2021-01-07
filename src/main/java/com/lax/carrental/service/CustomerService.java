@@ -22,6 +22,10 @@ public class CustomerService {
         return customer;
     }
 
+    public Customer findCurrentUser(String username) {
+        Customer customer = customerRepo.findByUsername(username);
+        return customer;
+    }
 
 
 }

@@ -30,16 +30,24 @@ public class Cars {
     @Column(name = "BOOKED")
     private boolean booked;
 
+    @Column(name = "DETAILS")
+    private String details;
+
+    @Column(name = "TYPE")
+    private String type;
+
     public Cars() {
     }
 
-    public Cars(long id, String name, String model, int price, LocalDateTime date, boolean booked) {
+    public Cars(long id, String name, String model, int price, String details, LocalDateTime date, boolean booked, String type) {
         this.id = id;
         this.name = name;
         this.model = model;
         this.price = price;
+        this.details = details;
         this.date = date;
         this.booked = booked;
+        this.type = type;
     }
 
     public long getId() {
@@ -88,5 +96,21 @@ public class Cars {
 
     public void setBooked(boolean booked) {
         this.booked = booked;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
